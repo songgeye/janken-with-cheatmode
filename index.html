@@ -145,6 +145,28 @@
   // ここにじゃんけんゲームのロジックを実装してください
   //
   // =========================================
+  const hands = ["rock", "scissors", "paper"];
+  const buttons = document.querySelectorAll(".button-group button");
+  buttons.forEach((button, index) => {
+    button.addEventListener("click", function() {
+        // ここに処理を書く
+        // alert(`${hands[index]}のボタンがクリックされました`);
+        const playerHand = hands[index];
+        const cpuHand = hands[Math.floor(Math.random() * 3)];
+
+        if (playerHand === cpuHand) {
+            console.log("引き分け");
+        } else if (
+            (playerHand === "rock" && cpuHand === "scissors") ||
+            (playerHand === "scissors" && cpuHand === "paper") ||
+            (playerHand === "paper" && cpuHand === "rock")
+        ) {
+            console.log("プレイヤーの勝ち");
+        } else {
+            console.log("CPUの勝ち");
+        }
+    });
+});
   </script>
 </body>
 </html>
